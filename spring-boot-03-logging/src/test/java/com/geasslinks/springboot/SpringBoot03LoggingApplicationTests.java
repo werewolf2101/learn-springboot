@@ -21,6 +21,7 @@ public class SpringBoot03LoggingApplicationTests {
         //调整输出的日志级别
         logger.trace("这是trace日志...");
         logger.debug("这是debug日志...");
+        //SpringBoot默认使用的是info级别
         logger.info("这是info日志");
         logger.warn("这是warn日志");
         logger.error("这是error日志");
