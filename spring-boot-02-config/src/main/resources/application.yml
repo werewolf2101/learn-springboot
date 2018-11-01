@@ -1,15 +1,15 @@
-server:
-  port: 5000
-
-person:
-  lastName: zhangsan
-  age: 11
-  boss: false
-  birth: 2018/12/12
-  maps: {k1: v1, k2: 22}
-  lists:
-    - lisi
-    - zhaowo
-  dog:
-    name: U·ェ·U
-    age: 2
+#server:
+#  port: 5000
+#
+#person:
+#  lastName: zhangsan
+#  age: 11
+#  boss: false
+#  birth: 2018/12/12
+#  maps: {k1: v1, k2: 22}
+#  lists:
+#    - lisi
+#    - zhaowo
+#  dog:
+#    name: 汪汪
+#    age: 2

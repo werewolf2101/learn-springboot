@@ -1,24 +1,40 @@
 package com.geasslinks.springboot.bean;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * @PropertySource 加载指定的配置文件
+ */
+@PropertySource(value = {"classpath:person.properties"})
+/**
  * 将配置文件中配置的每一个属性的值, 映射到这个组件中
- * @ConfigurationProperties 告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行配置
+ * @ConfigurationProperties 告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行配置, 默认从全局配置文件中获取值
  * prefix = "person" 指定配置文件中那个下面的所有属性进行一一映射
  * 只有这个组件是容器中的组件, 才能使用容器提供的@ConfigurationProperties功能
  */
 @Component //加到容器中
-@ConfigurationProperties(prefix = "person")
+@ConfigurationProperties(prefix = "person") //或者使用@Value
+//@Validated
 public class Person {
 
+    /**
+     * <bean class="Person">
+     *     <property name="lastName" value="字面量/${key}从环境变量, 配置文件中获取值/#{SpEL}"></property>
+     * </bean>
+     */
+    //@Value("${person.last-name}")
     private String lastName;
+    //@Value("#{22*3}")
     private Integer age;
+    //@Value("true")
     private Boolean boss;
     private Date birth;
 
